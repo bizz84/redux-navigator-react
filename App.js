@@ -1,57 +1,80 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import AppReducer from './src/reducers/AppReducer';
+import AppWithNavigationState from './src/components/AppNavigator';
 
-export default class App extends Component<{}> {
+class ReduxExampleApp extends React.Component {
+  store = createStore(AppReducer);
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Provider store={this.store}>
+        <AppWithNavigationState />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+AppRegistry.registerComponent('ReduxExample', () => ReduxExampleApp);
+
+export default ReduxExampleApp;
+
+
+
+// import React from 'react';
+// import { addNavigationHelpers, StackNavigator } from 'react-navigation';
+// import { createStore, combineReducers } from 'redux';
+// import { connect } from 'react-redux';
+// import MainPage from './src/components/MainPage';
+
+// export const AppNavigator = StackNavigator({
+//   MainPage: { screen: MainPage },
+// });
+
+// const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('MainPage'));
+
+// const navReducer = (state = initialState, action) => {
+//   const nextState = AppNavigator.router.getStateForAction(action, state);
+
+//   // Simply return the original `state` if `nextState` is null or undefined.
+//   return nextState || state;
+// };
+
+// const appReducer = combineReducers({
+//   nav: navReducer,
+// });
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <AppNavigator navigation={addNavigationHelpers({
+//         dispatch: this.props.dispatch,
+//         state: this.props.nav,
+//       })} />
+//     );
+//   }
+// }
+
+// const mapStateToProps = (state) => ({
+//   nav: state.nav
+// });
+
+// const AppWithNavigationState = connect(mapStateToProps)(App);
+
+// const store = createStore(appReducer);
+
+// class Root extends React.Component {
+//   render() {
+//     return (
+//       <Provider store={store}>
+//         <AppWithNavigationState />
+//       </Provider>
+//     );
+//   }
+// }
+
+//export default connect(mapStateToProps)(AppWithNavigationState);
