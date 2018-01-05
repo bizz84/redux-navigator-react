@@ -10,8 +10,6 @@ const COLORS = {
 class ChooseColorPage extends Component {
 
     onSelectColor(colorKey) {
-        console.log(COLORS[colorKey].name);
-
         const { navigation } = this.props;
         navigation.dispatch({ type: 'ChooseColorDismiss', colorKey: colorKey });        
     }

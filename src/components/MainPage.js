@@ -3,24 +3,19 @@ import { View, Text, Button } from 'react-native';
 
 class MainPage extends Component {
 
-    onButton1Press() {
-
+    onChooseColor() {
         const { navigation } = this.props;
         navigation.dispatch({ type: 'ChooseColor' });
-        //navigation.navigate('ChooseColorPage', {});
-
-        //console.log(navigation);
-        
     }
-    onButton2Press() {
-        console.log("Button 1");
+    onChooseShape() {
+        console.log("Choose shape");
     }
 
     render() {
         return (
             <View style={styles.containerStyle}>
-                <Button onPress={this.onButton1Press.bind(this)} title="Choose Color" />
-                <Button onPress={this.onButton2Press.bind(this)} title="Choose Shape" />
+                <Button onPress={this.onChooseColor.bind(this)} title="Choose Color" />
+                <Button onPress={this.onChooseShape.bind(this)} title="Choose Shape" />
             </View>
         )
     }

@@ -2,28 +2,30 @@ import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from '../components/AppNavigator';
 
-const mainAction = AppNavigator.router.getActionForPathAndParams('Main');
+const router = AppNavigator.router;
 
-const initialState = AppNavigator.router.getStateForAction(mainAction);
+const mainAction = router.getActionForPathAndParams('Main');
+
+const initialState = router.getStateForAction(mainAction);
 
 const navReducer = (state = initialState, action) => {
     console.log(action);
     let nextState;
     switch (action.type) {
     case 'ChooseColor':
-        nextState = AppNavigator.router.getStateForAction(
+        nextState = router.getStateForAction(
             NavigationActions.navigate({ routeName: 'ChooseColor' }),
             state
           );
         break;
     case 'ChooseColorDismiss':
-        nextState = AppNavigator.router.getStateForAction(
-            NavigationActions.back({ routeName: 'Main' }),
+        nextState = router.getStateForAction(
+            NavigationActions.back(),
             state
         );
         break;
     default:
-        nextState = AppNavigator.router.getStateForAction(action, state);
+        nextState = router.getStateForAction(action, state);
         break;
     }
 
