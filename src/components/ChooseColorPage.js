@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
-
-const COLORS = {
-    RED: { name: 'red', hex: '#F00' },
-    GREEN: { name: 'green', hex: '#0F0' },
-    BLUE: { name: 'blue', hex: '#00F' },
-}
+import { connect } from 'react-redux';
+import { colorChanged } from '../actions/ColorActions.js';
+import { COLORS } from '../state/Colors.js';
 
 class ChooseColorPage extends Component {
 
     onSelectColor(colorKey) {
+        this.props.colorChanged({ colorKey });
         const { navigation } = this.props;
-        navigation.dispatch({ type: 'ChooseColorDismiss', colorKey: colorKey });        
+        navigation.goBack();
+        //navigation.dispatch({ type: 'ChooseColorDismiss' });        
     }
 
     render() {
@@ -34,4 +33,11 @@ const styles = {
     }
 }
 
-export default ChooseColorPage;
+const mapStateToProps = state => {
+    const { color } = state;
+    return { color };
+};
+
+export default connect(mapStateToProps, {
+    colorChanged,
+})(ChooseColorPage);
