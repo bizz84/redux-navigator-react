@@ -67,4 +67,14 @@ This is done following conventions and principles explained in this (highly reco
 Navigation is done with [`react-navigation`](https://github.com/react-navigation/react-navigation) (see [NavigationPlayground](https://github.com/react-navigation/react-navigation/tree/master/examples/NavigationPlayground) example).
 
 
+## Resources
+
+* [React-Navigation, complete Redux state management, tab-bar, and multiple navigators](https://codeburst.io/react-navigation-with-complete-redux-state-management-tab-bar-and-multiple-navigators-ed30a69d9a4d)
+* [11 mistakes I’ve made during React Native / Redux app development](https://medium.com/dailyjs/11-mistakes-ive-made-during-react-native-redux-app-development-8544e2be9a9)
+* [A Functional Programmer’s Introduction to JavaScript (Composing Software)](https://medium.com/javascript-scene/a-functional-programmers-introduction-to-javascript-composing-software-d670d14ede30)
+* [Top JavaScript Libraries & Tech to Learn in 2018](https://medium.com/javascript-scene/top-javascript-libraries-tech-to-learn-in-2018-c38028e028e6)
+* [Understanding Flexbox: Everything you need to know](https://medium.freecodecamp.org/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af)
+* [How We Built Our React Native App](https://medium.com/engineering-housing/how-we-built-our-react-native-app-3380a33811ac)
+
+
 
