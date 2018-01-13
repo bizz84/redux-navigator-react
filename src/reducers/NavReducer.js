@@ -7,7 +7,6 @@ const mainNavAction = router.getActionForPathAndParams('Main');
 const initialNavState = router.getStateForAction(mainNavAction);
 
 const NavReducer = (state = initialNavState, action) => {
-    console.log(action);
     let nextState;
     switch (action.type) {
     case 'ChooseColor':
@@ -15,11 +14,11 @@ const NavReducer = (state = initialNavState, action) => {
             NavigationActions.navigate({ routeName: 'ChooseColor' }),
             state);
         break;
-    case 'ChooseColorDismiss':
-        nextState = router.getStateForAction(
-            NavigationActions.back(),
-            state);
-        break;
+    // case 'ChooseColorDismiss':
+    //     nextState = router.getStateForAction(
+    //         NavigationActions.back(),
+    //         state);
+    //     break;
     default:
         nextState = router.getStateForAction(action, state);
         break;
