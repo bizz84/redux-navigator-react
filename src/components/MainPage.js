@@ -45,8 +45,7 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-    const { color } = state;
-    return { colorKey: color.colorKey };
+    return { colorKey: state.color.colorKey };
 };
 
 export default connect(mapStateToProps)(MainPage);
