@@ -18,15 +18,11 @@ class MainPage extends Component {
     colorButtonTitle() {
         const { colorKey } = this.props;
         console.log(this.props);
-        if (colorKey !== undefined) {
+        if (colorKey !== null) {
             let name = COLORS[colorKey].name;
             return "Choose Color (" + name + ")";
         }
         return "Choose Color";
-    }
-
-    componentDidUpdate() {
-        console.log('update');
     }
 
     render() {
@@ -49,8 +45,8 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-    const { colorKey } = state;
-    return { colorKey };
+    const { color } = state;
+    return { colorKey: color.colorKey };
 };
 
 export default connect(mapStateToProps)(MainPage);
