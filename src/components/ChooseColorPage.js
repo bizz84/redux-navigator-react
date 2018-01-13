@@ -33,10 +33,7 @@ const styles = {
     }
 }
 
-const mapStateToProps = state => {
-    const { color } = state;
-    return { color };
-};
+const mapStateToProps = state => ({ });
 
 export default connect(mapStateToProps, {
     colorChanged,
