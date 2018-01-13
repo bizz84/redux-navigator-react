@@ -12,20 +12,18 @@ class MainPage extends Component {
 
     }
 
-    buttonColor() {
-        const { colorKey } = this.props;
-        if (colorKey !== null) {
-            return COLORS[colorKey].hex;
-        }
-        return "#000"
+    selectedColor() {
+        var { colorKey } = this.props;
+        return COLORS[colorKey].hex;
     }
 
     render() {
+        const color = this.selectedColor();
         return (
-            <View>
+            <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: color }}>
                 <Button 
-                    color={this.buttonColor()}
-                    onPress={this.onChooseColor.bind(this)} 
+                    onPress={this.onChooseColor.bind(this)}
+                    color="#FFF"
                     title="Choose Color"
                 />
             </View>
