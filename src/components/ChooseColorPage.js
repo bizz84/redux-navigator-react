@@ -15,21 +15,12 @@ class ChooseColorPage extends Component {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
+            <View>
                 {Object.keys(COLORS).map((key) => (
                     <Button key={key} onPress={() => this.onSelectColor(key)} title={COLORS[key].name} />
                 ))}
             </View>
         )
-    }
-}
-
-const styles = {
-    containerStyle: {
-        flex: 1,
-        flexDirection: 'column',
-        alignSelf: 'stretch',
-        backgroundColor: '#eee'
     }
 }
 
