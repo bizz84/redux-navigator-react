@@ -1,11 +1,11 @@
 const initialState = {
-    colorKey: 'RED',
+    colorName: 'RED',
 };
 
 const ColorReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'COLOR_CHANGED':
-            return { ...state, colorKey: action.payload.colorKey };
+            return { ...state, colorName: action.payload.colorName };
         default:
             return state;
     }

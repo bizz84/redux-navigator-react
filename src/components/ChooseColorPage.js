@@ -6,8 +6,8 @@ import { COLORS } from '../state/Colors.js';
 
 class ChooseColorPage extends Component {
 
-    onSelectColor(colorKey) {
-        this.props.colorChanged({ colorKey });
+    onSelectColor(colorName) {
+        this.props.colorChanged({ colorName });
         const { navigation } = this.props;
         navigation.goBack();
         //navigation.dispatch({ type: 'ChooseColorDismiss' });        
@@ -20,7 +20,7 @@ class ChooseColorPage extends Component {
                     <Button 
                         key={key}
                         title={COLORS[key].name}
-                        color={COLORS[key].hex}
+                        color={COLORS[key].hexCode}
                         onPress={() => this.onSelectColor(key)}
                     />
                 ))}

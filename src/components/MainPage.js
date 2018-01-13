@@ -13,8 +13,8 @@ class MainPage extends Component {
     }
 
     selectedColor() {
-        var { colorKey } = this.props;
-        return COLORS[colorKey].hex;
+        const { colorName } = this.props;
+        return COLORS[colorName].hexCode;
     }
 
     render() {
@@ -32,7 +32,7 @@ class MainPage extends Component {
 }
     
 const mapStateToProps = state => {
-    return { colorKey: state.color.colorKey };
+    return { colorName: state.color.colorName };
 };
 
 export default connect(mapStateToProps)(MainPage);
