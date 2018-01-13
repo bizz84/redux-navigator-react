@@ -11,13 +11,9 @@ class MainPage extends Component {
         navigation.navigate('ChooseColor', {});
 
     }
-    onChooseShape() {
-        console.log("Choose shape");
-    }
 
     colorButtonTitle() {
         const { colorKey } = this.props;
-        console.log(this.props);
         if (colorKey !== null) {
             let name = COLORS[colorKey].name;
             return "Choose Color (" + name + ")";
@@ -27,23 +23,13 @@ class MainPage extends Component {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
+            <View>
                 <Button onPress={this.onChooseColor.bind(this)} title={this.colorButtonTitle()} />
-                <Button onPress={this.onChooseShape.bind(this)} title="Choose Shape" />
             </View>
         )
     }
 }
     
-const styles = {
-    containerStyle: {
-        flex: 1,
-        flexDirection: 'column',
-        alignSelf: 'stretch',
-        backgroundColor: '#eee'
-    }
-}
-
 const mapStateToProps = state => {
     return { colorKey: state.color.colorKey };
 };
