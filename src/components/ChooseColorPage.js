@@ -17,7 +17,12 @@ class ChooseColorPage extends Component {
         return (
             <View>
                 {Object.keys(COLORS).map((key) => (
-                    <Button key={key} onPress={() => this.onSelectColor(key)} title={COLORS[key].name} />
+                    <Button 
+                        key={key}
+                        title={COLORS[key].name}
+                        color={COLORS[key].hex}
+                        onPress={() => this.onSelectColor(key)}
+                    />
                 ))}
             </View>
         )

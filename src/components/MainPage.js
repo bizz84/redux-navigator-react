@@ -12,19 +12,22 @@ class MainPage extends Component {
 
     }
 
-    colorButtonTitle() {
+    buttonColor() {
         const { colorKey } = this.props;
         if (colorKey !== null) {
-            let name = COLORS[colorKey].name;
-            return "Choose Color (" + name + ")";
+            return COLORS[colorKey].hex;
         }
-        return "Choose Color";
+        return "#000"
     }
 
     render() {
         return (
             <View>
-                <Button onPress={this.onChooseColor.bind(this)} title={this.colorButtonTitle()} />
+                <Button 
+                    color={this.buttonColor()}
+                    onPress={this.onChooseColor.bind(this)} 
+                    title="Choose Color"
+                />
             </View>
         )
     }
